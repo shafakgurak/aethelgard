@@ -1,0 +1,60 @@
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner fade-up">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.3);border-radius:2px;padding:8px 18px;margin-bottom:24px;">
+        <div class="sec-badge-dot"></div>
+        <span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;">Introductory Early Bird Offer — First 10 Single school Licences Include Utility Programme -<b><i>Free!</i></b></span>
+      </div>
+      <h2>Ready to Give Your Staff <em>Genuinely Effective</em> Cyber Training?</h2>
+      <p>No installation. No internet connection required. No per-seat SaaS bills. No cloud risk. Just effective, certifiable cybersecurity awareness training that works for time-scarce professionals.</p>
+      
+      <div class="cta-form" style="text-align: center; margin-top: 20px;">
+        <button id="main-cta-btn" onclick="executeSteelHandshake()" 
+           style="display: inline-block; padding: 18px 45px; background: #c9a227; color: #000; border: none; font-weight: bold; border-radius: 4px; font-size: 16px; text-transform: uppercase; cursor: pointer; letter-spacing: 1px;">
+           Request a Deployment Key
+        </button>
+        
+        <div id="handshake-status" style="margin-top: 15px; font-size: 14px; color: #ffd700; height: 20px; font-weight: bold;"></div>
+      </div>
+
+      <p class="cta-guarantee" style="margin-top: 25px;">🔒 <span>No data leaves this page. No accounts created. No spam.</span><br>You will receive a response within 3 business days.</p>
+      
+      <div class="cta-meta">
+        <div class="cta-meta-item"><div class="cta-meta-num">0</div><div class="cta-meta-label">External Servers Used</div></div>
+        <div class="cta-meta-item"><div class="cta-meta-num">24hr</div><div class="cta-meta-label">Deployment Turnaround</div></div>
+        <div class="cta-meta-item"><div class="cta-meta-num">20 yrs</div><div class="cta-meta-label">Founder's Experience</div></div>
+        <div class="cta-meta-item"><div class="cta-meta-num">UK-Built</div><div class="cta-meta-label">NCSC &amp; NIST Aligned</div></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * Logic Shard: The Steel Handshake
+     * Ensures contact is made even if the browser blocks mailto or no mail app exists.
+     */
+    function executeSteelHandshake() {
+        const email = 'shafakgurak@gmail.com';
+        const status = document.getElementById('handshake-status');
+        const subject = "Deployment Key Request - Aethelgard";
+        const body = "I am interested in information regarding Aethelgard licensing.";
+
+        // 1. Attempt to open mail client
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // 2. Fallback: Copy to clipboard immediately
+        const el = document.createElement('textarea');
+        el.value = email;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+
+        // 3. UI Update: Inform user
+        status.innerText = "Email address copied! If mail app didn't open, please paste into Gmail/Outlook.";
+        
+        // Reset message after 5 seconds
+        setTimeout(() => { status.innerText = ""; }, 6000);
+    }
+  </script>
+</section>
